@@ -1,0 +1,29 @@
+---
+- name: Show ip interface brief
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip interface brief  # noqa: var-naming[no-role-prefix]
+
+- name: Show ip route
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip route  # noqa: var-naming[no-role-prefix]
+
+- name: Configure interfaces
+  cisco.ios.ios_l3_interfaces:
+    config: "{{ ip_interfaces_config[inventory_hostname] }}"
+    state: merged
+
+- name: Show ip interface brief
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip interface brief  # noqa: var-naming[no-role-prefix]
+
+- name: Show ip route
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip route  # noqa: var-naming[no-role-prefix]

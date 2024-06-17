@@ -1,0 +1,33 @@
+---
+- name: Show ip ospf neighbor
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip ospf neighbor  # noqa: var-naming[no-role-prefix]
+
+- name: Show ip route
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip route  # noqa: var-naming[no-role-prefix]
+
+- name: Configure OSPF
+  cisco.ios.ios_ospfv2:
+    config: "{{ ospf_config[inventory_hostname] }}"
+    state: replaced
+
+- name: Pause for 40 seconds
+  ansible.builtin.pause:
+    seconds: 40
+
+- name: Show ip ospf neighbor
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip ospf neighbor  # noqa: var-naming[no-role-prefix]
+
+- name: Show ip route
+  ansible.builtin.include_role:
+    name: show_cmd
+  vars:
+    show_cmd: ip route  # noqa: var-naming[no-role-prefix]

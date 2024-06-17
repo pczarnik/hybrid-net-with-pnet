@@ -1,0 +1,37 @@
+---
+- name: Configure routers
+  hosts: R1,R2
+  gather_facts: false
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: Clean interfaces
+      cisco.ios.ios_l3_interfaces:
+        config: "{{ ip_interfaces_config[inventory_hostname] }}"
+        state: deleted
+
+    - name: Delete OSPF config
+      cisco.ios.ios_ospfv2:
+        state: deleted
+
+    - name: Configure interfaces
+      ansible.builtin.include_role:
+        name: config_ip_interfaces
+
+    - name: Ping interfaces
+      loop: "{{ ip_interfaces_config.keys() | list }}"
+      loop_control:
+        loop_var: router
+      ansible.builtin.include_role:
+        name: ping_interfaces
+
+    - name: Configure ospf
+      ansible.builtin.include_role:
+        name: config_ospf
+
+    - name: Ping interfaces
+      loop: "{{ ip_interfaces_config.keys() | list }}"
+      loop_control:
+        loop_var: router
+      ansible.builtin.include_role:
+        name: ping_interfaces

@@ -1,0 +1,9 @@
+---
+- name: "Get {{ show_cmd }}"
+  cisco.ios.ios_command:
+    commands: "show {{ show_cmd }}"
+  register: output
+
+- name: "Show {{ show_cmd }}"
+  ansible.builtin.debug:
+    msg: "{{ output.stdout_lines[0] }}"

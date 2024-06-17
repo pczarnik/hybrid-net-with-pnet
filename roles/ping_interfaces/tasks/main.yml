@@ -1,0 +1,6 @@
+---
+- name: "Ping {{ router }} interfaces"  # noqa: name[template]
+  cisco.ios.ios_ping:
+    dest: "{{ item[0]['address'] | split('/') | first }}"
+  loop: "{{ ip_interfaces_config[router] | map(attribute='ipv4') | list }}"
+  ignore_errors: true  # noqa: ignore-errors
