@@ -25,7 +25,7 @@ ip_interfaces_config:
     - name: Loopback8
       ipv4:
         - address: 172.16.0.4/32
-  R2:
+  VR1:
     - name: Loopback1
       ipv4:
         - address: 10.0.1.1/32
@@ -65,7 +65,7 @@ ospf_config:
           - address: 172.16.0.0
             wildcard_bits: 0.0.0.255
             area: 0
-  R2:
+  VR1:
     processes:
       - process_id: 1
         network:
