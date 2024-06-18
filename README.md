@@ -40,6 +40,7 @@ ishare2 pull <typ, np. qemu> <numer obrazu>
 
 Zbuduj sieć jak na obrazku poniżej:
 
+![Alt text](/images/Screenshot%20from%202024-06-18%2021-36-00.png)
 
 Chmurką zostało oznaczone 'Managment Cloud', które można dodać klikając prawym przyciskiem myszy i wybierając 'Network'.
 
