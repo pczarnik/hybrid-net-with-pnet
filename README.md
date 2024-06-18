@@ -1,36 +1,60 @@
 # 1. Konfiguracja PNETLab
 
 Maszyna wirtualna PNETLab wymaga WVMware Workstation, Player lub ESXi, ale poniższe laboratiorium było testowane wyłącznie na Workstation. Obraz PNETLab można pobrać ze strony https://pnetlab.com/pages/download.
+Pobrany plik będzie miał rozszerzenie `.ova`.
 
-1. Uruchom maszynę wirtualną <br>
-Przed uruchomieniem maszyny, należy zaznaczyć w ustawieniach 'Virtualize Intel VT-x/EPT or AMD-V/RVI':
-![Alt text](/images/Screenshot%20from%202024-06-18%2008-05-50.png)
-Gdy maszyna się uruchomi, zanotuj przydzielony adres IP.
+Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicznego internetu - najlepiej z adresem IP przydzielanym przez DHCP. 
 
-2. Po uruchomieniu maszyny wirtualnej, zaloguj się domyślnym loginem i hasłem (root/pnet). Jeśli uruchamiasz ją po raz pierwszy, odczekaj chwilę, aż pojawi się okno konfiguracji. Pozostaw wszędzie wartości domyślne, klikając 'Enter'.
+1. Stwórz maszynę importując plik `.ova`.
 
-3. Zainstaluj `ishare2`, za pomocą komendy:
-```console
-wget -O /usr/sbin/ishare2 https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2 && chmod +x /usr/sbin/ishare2 && ishare2
-```
+   ![](/images/open_vm.png)
 
-4. Pobierz wybrany obraz switcha. Możesz obejrzeć dostępne obrazy za pomocą komendy:
-```console
-ishare2 search viosl2
-```
-Aby pobrać jeden z nich wykonaj komendę:
-```console
-ishare2 pull <typ, np. qemu> <numer obrazu> 
-```
+2. Zmodyfikuj ustawienia maszyny wirtualnej:
+   - włącz zagnieżdżoną wirtualizację - `Virtualize Intel VT-x/EPT or AMD-V/RVI`
+      ![](/images/enable_vtx.png)
+   - ustaw interfejsy sieciowe (kolejność ma znaczenie!)
+      ![](/images/net_if1.png)
+      ![](/images/net_if2.png)
 
-5. Pobierz wybrany obraz routera. Możesz obejrzeć dostępne obrazy za pomocą komendy:
-```console
-ishare2 search csr
-```
-Aby pobrać jeden z nich wykonaj komendę:
-```console
-ishare2 pull <typ, np. qemu> <numer obrazu> 
-```
+3. Uruchom maszynę wirtualną - zaloguj się za pomocą `root/pnet`
+   ![](/images/vm_firstboot.png)
+
+4. Pojawi się okno konfiguracji - nic nie zmieniaj, przeklikaj enterem.
+   Maszyna automatycznie się zrestartuje.
+   ![](/images/vm_firstboot_config.png)
+
+5. Po automatycznym zrestartowaniu maszyny, zanotuj jej adres IP przydzielony przez DHCP.
+   ![](/images/vm_ipaddress.png)
+Jeśli adres nie zostanie przydzielony, zaloguj się do niej za pomocą `root/pnet` i ustaw statyczny adres IP:
+   ```
+   ip address add dev pnet0 <IP/MASK 192.168.0.5/24>
+   ```
+
+6. Sprawdź, czy maszyna jest dostępna pingując ją z hypervisora:
+   ```
+   ping <IP 192.168.0.5>
+   ```
+
+7. Teraz możesz zalogować się do PNETLaba przez ssh - wykorzystaj terminal lub PUTTY - login i hasło takie same jak wcześniej: `root/pnet`
+
+8. Zainstaluj `ishare2`, za pomocą komendy:
+   ```console
+   wget -O /usr/sbin/ishare2 https://raw.githubusercontent.com/ishare2-org/ishare2-cli/main/ishare2 && chmod +x /usr/sbin/ishare2 && ishare2
+   ```
+   Przy automatycznej konfiguracji ishare2 skorzystaj z domyślnych ustawień zmieniając jedynie `Check SSL certrificate` na `n`.
+   ![](/images/ishare_installation.png)
+
+9. Pobierz obrazy routera i switcha:
+   - sprawdź id-ki obrazów:
+      ```
+      ishare2 search vios-15.5.3M
+      ishare2 search viosl2-15.2.4.55e
+      ```
+   - pobierz obrazy wykorzystując id-ki:
+      ```
+      ishare2 pull qemu 918
+      ishare2 pull qemu 930
+      ```
 
 6. Wpisz w przeglądarkę zanotowany wcześniej adres IP i zaloguj się do PNETLab w trybie offline. Następnie upewnij się, że możesz wybrać pobrane przez siebie router i switch. W tym celu kliknij prawym przyciskiem myszy i wybierz 'Node'. Powinieneś móć wybrać pobrane urządzenia.
 
