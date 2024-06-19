@@ -1,0 +1,19 @@
+---
+- name: Disable interfaces
+  cisco.ios.ios_interfaces:
+    config: "{{ interfaces_config }}"
+    state: deleted
+  vars:
+    interfaces_config: "{{ ip_interfaces_config[inventory_hostname]
+      | map(attribute='name')
+      | map('community.general.dict_kv', 'name')
+      | list }}"
+
+- name: Clean interfaces
+  cisco.ios.ios_l3_interfaces:
+    config: "{{ ip_interfaces_config[inventory_hostname] }}"
+    state: deleted
+
+- name: Delete OSPF config
+  cisco.ios.ios_ospfv2:
+    state: deleted

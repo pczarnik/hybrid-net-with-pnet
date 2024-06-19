@@ -37,7 +37,7 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
     - włącz zagnieżdżoną wirtualizację - `Virtualize Intel VT-x/EPT or AMD-V/RVI`
 
       ![](/images/enable_vtx.png)
-  
+
     - ustaw interfejsy sieciowe (kolejność ma znaczenie!)
 
       ![](/images/net_if1.png)
@@ -252,7 +252,7 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
 2. Uruchom ansible-owy playbook:
 
     ```console
-    ansible-playbook -i inventory.cfg config_routers.yaml
+    ansible-playbook -i inventory.cfg config_routers.yml
     ```
 
     Playbook ten uruchomi listę zadań na routerach wymienionych w `inventory.cfg`.
@@ -264,8 +264,19 @@ Spróbuj dodać dodatkowy router wirtualny (a może też i fizyczny?) - pamięta
 
     ![](/images/hybrid_net2.png)
 
+4. Zauważ, że wcześniej konfigurowaliśmy OSPFa na sieci `192.168.0.0/24`, którą używamy do SSH.
+    Spróbuj teraz skonfigurować bardziej rozbudowaną sieć (`R*` i `S*` to mogą być albo fizyczne albo wirtualne urządzenia), w której mamy dodatkową prywatną sieć `172.31.0.0/24`:
 
+    ![](/images/private_net.png)
+
+    Interfejsy `Gi0/0` skonfiguruj ręcznie (tak jak wcześniej) - posłużą nam one tylko do połączenia ssh - nie będziemy ich dodawać do OSPFa.
+
+    Interfejsy `Gi0/1` i `Loopback*` oraz OSPF na sieciach `172.31.0.0/24` i wszystkich sieciach loopbackowych zostaną skonfigurowane przez Ansible.
+
+    Użyj do tego plików `examples/private_net_4_routers/inventory.cfg` i `examples/private_net_4_routers/vars.yaml`.
+
+    Sprawdź tablice routingu i neighborów OSPFa - powinny teraz być zawierać więcej wpisów.
 
 ## 4. Możliwe problemy
 
-1. Wersja 6.1.2 ansible'owej kolecji `ansible.netcommon` zawiera błędy, które nie pozwalją na tworzenie interfejsów. Należy zainstalować starszą wersję, np. 6.1.1.
+1. Wersja 6.1.2 ansible'owej kolecji `ansible.netcommon` zawiera błędy, które nie pozwalają na tworzenie interfejsów. Należy zainstalować starszą wersję, np. `6.1.1`.

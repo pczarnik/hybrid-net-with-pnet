@@ -11,10 +11,20 @@
   vars:
     show_cmd: ip route  # noqa: var-naming[no-role-prefix]
 
-- name: Configure interfaces
+- name: Set IP addresses
   cisco.ios.ios_l3_interfaces:
     config: "{{ ip_interfaces_config[inventory_hostname] }}"
     state: merged
+
+- name: Enable interfaces
+  cisco.ios.ios_interfaces:
+    config: "{{ interfaces_config }}"
+    state: merged
+  vars:
+    interfaces_config: "{{ ip_interfaces_config[inventory_hostname]
+      | map(attribute='name')
+      | map('community.general.dict_kv', 'name')
+      | list }}"
 
 - name: Show ip interface brief
   ansible.builtin.include_role:

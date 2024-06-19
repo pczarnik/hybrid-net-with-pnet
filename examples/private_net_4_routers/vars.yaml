@@ -1,0 +1,168 @@
+---
+ip_interfaces_config:
+  R1:
+    - name: Loopback1
+      ipv4:
+        - address: 10.0.1.1/32
+    - name: Loopback2
+      ipv4:
+        - address: 10.0.1.2/32
+    - name: Loopback3
+      ipv4:
+        - address: 10.0.1.3/32
+    - name: Loopback4
+      ipv4:
+        - address: 10.0.1.4/32
+    - name: Loopback5
+      ipv4:
+        - address: 172.16.0.1/32
+    - name: Loopback6
+      ipv4:
+        - address: 172.16.0.2/32
+    - name: Loopback7
+      ipv4:
+        - address: 172.16.0.3/32
+    - name: Loopback8
+      ipv4:
+        - address: 172.16.0.4/32
+    - name: GigabitEthernet0/1
+      ipv4:
+        - address: 172.31.0.1/24
+  R2:
+    - name: Loopback1
+      ipv4:
+        - address: 10.0.2.1/32
+    - name: Loopback2
+      ipv4:
+        - address: 10.0.2.2/32
+    - name: Loopback3
+      ipv4:
+        - address: 10.0.2.3/32
+    - name: Loopback4
+      ipv4:
+        - address: 10.0.2.4/32
+    - name: Loopback5
+      ipv4:
+        - address: 172.17.0.1/32
+    - name: Loopback6
+      ipv4:
+        - address: 172.17.0.2/32
+    - name: Loopback7
+      ipv4:
+        - address: 172.17.0.3/32
+    - name: Loopback8
+      ipv4:
+        - address: 172.17.0.4/32
+    - name: GigabitEthernet0/1
+      ipv4:
+        - address: 172.31.0.2/24
+  R3:
+    - name: Loopback1
+      ipv4:
+        - address: 10.0.3.1/32
+    - name: Loopback2
+      ipv4:
+        - address: 10.0.3.2/32
+    - name: Loopback3
+      ipv4:
+        - address: 10.0.3.3/32
+    - name: Loopback4
+      ipv4:
+        - address: 10.0.3.4/32
+    - name: Loopback5
+      ipv4:
+        - address: 172.18.0.1/32
+    - name: Loopback6
+      ipv4:
+        - address: 172.18.0.2/32
+    - name: Loopback7
+      ipv4:
+        - address: 172.18.0.3/32
+    - name: Loopback8
+      ipv4:
+        - address: 172.18.0.4/32
+    - name: GigabitEthernet0/1
+      ipv4:
+        - address: 172.31.0.3/24
+  R4:
+    - name: Loopback1
+      ipv4:
+        - address: 10.0.4.1/32
+    - name: Loopback2
+      ipv4:
+        - address: 10.0.4.2/32
+    - name: Loopback3
+      ipv4:
+        - address: 10.0.4.3/32
+    - name: Loopback4
+      ipv4:
+        - address: 10.0.4.4/32
+    - name: Loopback5
+      ipv4:
+        - address: 172.19.0.1/32
+    - name: Loopback6
+      ipv4:
+        - address: 172.19.0.2/32
+    - name: Loopback7
+      ipv4:
+        - address: 172.19.0.3/32
+    - name: Loopback8
+      ipv4:
+        - address: 172.19.0.4/32
+    - name: GigabitEthernet0/1
+      ipv4:
+        - address: 172.31.0.4/24
+
+ospf_config:
+  R1:
+    processes:
+      - process_id: 1
+        network:
+          - address: 10.0.1.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.16.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.31.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+  R2:
+    processes:
+      - process_id: 1
+        network:
+          - address: 10.0.2.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.17.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.31.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+  R3:
+    processes:
+      - process_id: 1
+        network:
+          - address: 10.0.3.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.18.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.31.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+  R4:
+    processes:
+      - process_id: 1
+        network:
+          - address: 10.0.4.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.19.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0
+          - address: 172.31.0.0
+            wildcard_bits: 0.0.0.255
+            area: 0

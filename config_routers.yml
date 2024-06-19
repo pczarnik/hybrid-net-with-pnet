@@ -5,14 +5,9 @@
   vars_files:
     - vars.yaml
   tasks:
-    - name: Clean interfaces
-      cisco.ios.ios_l3_interfaces:
-        config: "{{ ip_interfaces_config[inventory_hostname] }}"
-        state: deleted
-
-    - name: Delete OSPF config
-      cisco.ios.ios_ospfv2:
-        state: deleted
+    - name: Cleanup config
+      ansible.builtin.include_role:
+        name: cleanup_config
 
     - name: Configure interfaces
       ansible.builtin.include_role:
