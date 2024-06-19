@@ -63,11 +63,11 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
 
 7. Teraz możesz zalogować się do PNETLaba przez ssh - wykorzystaj terminal lub PUTTY - login i hasło takie same jak wcześniej: `root/pnet`. Następne komendy wykonuj po zalogowaniu się do VMki.
 
-8. (Krok opcjalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Zainstaluj `pip3`, `ansible` i moduły `cisco`, za pomocą komendy:
+8. (Krok opcjalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Zainstaluj `pip3` i `ansible` za pomocą komendy:
     ```
-    sudo apt install python3-pip
-    pip3 install ansible==4.10.0 ansible-pylibssh
-    ansible-galaxy collection install cisco.ios
+    curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py
+    python3 get-pip.py
+    pip install ansible paramiko
     ```
 
 9. (Krok opcjalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Sklonuj repozytorium:
