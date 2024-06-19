@@ -31,27 +31,37 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
 
 1. Stwórz maszynę importując plik `.ova`.
 
-   ![](/images/open_vm.png)
+    ![](/images/open_vm.png)
 
 2. Zmodyfikuj ustawienia maszyny wirtualnej:
-  - włącz zagnieżdżoną wirtualizację - `Virtualize Intel VT-x/EPT or AMD-V/RVI`
-    ![](/images/enable_vtx.png)
-  - ustaw interfejsy sieciowe (kolejność ma znaczenie!)
-    ![](/images/net_if1.png)
-    ![](/images/net_if2.png)
+    - włącz zagnieżdżoną wirtualizację - `Virtualize Intel VT-x/EPT or AMD-V/RVI`
+
+      ![](/images/enable_vtx.png)
+  
+    - ustaw interfejsy sieciowe (kolejność ma znaczenie!)
+
+      ![](/images/net_if1.png)
+
+      ![](/images/net_if2.png)
 
 3. Uruchom maszynę wirtualną - zaloguj się za pomocą `root/pnet`
-  ![](/images/vm_firstboot.png)
+
+    ![](/images/vm_firstboot.png)
 
 4. Pojawi się okno konfiguracji - wpisz dwukrotnie hasło `pnet`, a potem nic nie zmieniaj, przeklikaj enterem.
   Maszyna automatycznie się zrestartuje.
-  ![](/images/vm_firstboot_config.png)
+
+    ![](/images/vm_firstboot_config.png)
 
 5. Po automatycznym zrestartowaniu maszyny, zanotuj jej adres IP przydzielony przez DHCP.
-  ![](/images/vm_ipaddress.png)
-  Jeśli adres nie zostanie automatycznie przydzielony:
-  ![](/images/pnet_noip.png)
-  zaloguj się do niej za pomocą `root/pnet` i ustaw statyczny adres IP z tej samej sieci, na której jest hypervisor/laptop:
+
+    ![](/images/vm_ipaddress.png)
+
+    Jeśli adres nie zostanie automatycznie przydzielony:
+
+    ![](/images/pnet_noip.png)
+
+    zaloguj się do niej za pomocą `root/pnet` i ustaw statyczny adres IP z tej samej sieci, na której jest hypervisor/laptop:
     ```
     ip address add dev pnet0 <IP/MASK 192.168.0.5/24>
     ```
