@@ -102,9 +102,7 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
       ```
       ip address show pnet0
       ```
-      Otwórz ten adres IP w przeglądarce i zaloguj się wybierając logowanie `offline` i używając domyślne `admin/pnet`. Możesz zmienić `Default Console` na `HTML Console` (umożliwi to dostęp do konsoli wirtualnych urządzeń przez przeglądarkę):
-
-      ![](/images/pnet_startpage.png)
+      Otwórz ten adres IP w przeglądarce i zaloguj się wybierając logowanie `offline` i używając domyślne `admin/pnet`. Możesz zmienić `Default Console` na `HTML Console` (umożliwi to dostęp do konsoli wirtualnych urządzeń przez przeglądarkę)
 
     - Stwórz nowy lab:
 
