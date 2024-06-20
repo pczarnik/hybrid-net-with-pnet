@@ -73,14 +73,14 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
 
 7. Teraz możesz zalogować się do PNETLaba przez ssh - wykorzystaj terminal lub PUTTY - login i hasło takie same jak wcześniej: `root/pnet`. Następne komendy wykonuj po zalogowaniu się do VMki.
 
-8. (Krok opcjalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Zainstaluj `pip3` i `ansible` za pomocą komendy:
+8. (Krok opcjonalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Zainstaluj `pip3` i `ansible` za pomocą komendy:
     ```
     curl -O https://bootstrap.pypa.io/pip/3.6/get-pip.py
     python3 get-pip.py
     pip install ansible paramiko
     ```
 
-9. (Krok opcjalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Sklonuj repozytorium:
+9. (Krok opcjonalny - jeśli będziesz uruchamiał ansible z wewnątrz VMki PNETLAba) Sklonuj repozytorium:
     ```
     git clone https://github.com/pczarnik/hybrid-net-with-pnet.git
     ```
@@ -230,13 +230,13 @@ Do pierwszej konfiguracji PNETLaba konieczne jest posiadanie dostępu do publicz
     - `vars.yaml` - dodaj lub zmień konfigurację loopbacków i OSPFa dla każdego ze zmienionych/dodanych routerów:
         ```yaml
         ip_interfaces_config:
-          R1:
+          <hostname>:
             - name: Loopback1
               ipv4:
                 - address: 10.0.0.1/32
         ...
         ospf_config:
-        R1:
+          <hostname>:
             processes:
               - process_id: 1
                 network:
@@ -275,7 +275,7 @@ Spróbuj dodać dodatkowy router wirtualny (a może też i fizyczny?) - pamięta
 
     Użyj do tego plików `examples/private_net_4_routers/inventory.cfg` i `examples/private_net_4_routers/vars.yaml`.
 
-    Sprawdź tablice routingu i neighborów OSPFa - powinny teraz być zawierać więcej wpisów.
+    Sprawdź tablice routingu i neighborów OSPFa - powinny teraz zawierać więcej wpisów.
 
 ## 4. Możliwe problemy
 
