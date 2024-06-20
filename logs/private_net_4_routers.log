@@ -1,0 +1,1158 @@
+
+PLAY [Configure routers] *******************************************************
+
+TASK [Cleanup config] **********************************************************
+
+TASK [cleanup_config : Disable interfaces] *************************************
+changed: [R1]
+changed: [R3]
+changed: [R2]
+changed: [R4]
+
+TASK [cleanup_config : Clean interfaces] ***************************************
+changed: [R1]
+changed: [R3]
+changed: [R2]
+changed: [R4]
+
+TASK [cleanup_config : Delete OSPF config] *************************************
+ok: [R2]
+ok: [R1]
+ok: [R3]
+ok: [R4]
+
+TASK [Configure interfaces] ****************************************************
+
+TASK [Show ip interface brief] *************************************************
+
+TASK [show_cmd : Get ip interface brief] ***************************************
+ok: [R4]
+ok: [R3]
+ok: [R1]
+ok: [R2]
+
+TASK [show_cmd : Show ip interface brief] **************************************
+ok: [R1] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.1     YES manual up                    up      ",
+        "GigabitEthernet0/1         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  unassigned      YES manual administratively down down    ",
+        "Loopback2                  unassigned      YES manual administratively down down    ",
+        "Loopback3                  unassigned      YES manual administratively down down    ",
+        "Loopback4                  unassigned      YES manual administratively down down    ",
+        "Loopback5                  unassigned      YES manual administratively down down    ",
+        "Loopback6                  unassigned      YES manual administratively down down    ",
+        "Loopback7                  unassigned      YES manual administratively down down    ",
+        "Loopback8                  unassigned      YES manual administratively down down"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.2     YES manual up                    up      ",
+        "GigabitEthernet0/1         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  unassigned      YES manual administratively down down    ",
+        "Loopback2                  unassigned      YES manual administratively down down    ",
+        "Loopback3                  unassigned      YES manual administratively down down    ",
+        "Loopback4                  unassigned      YES manual administratively down down    ",
+        "Loopback5                  unassigned      YES manual administratively down down    ",
+        "Loopback6                  unassigned      YES manual administratively down down    ",
+        "Loopback7                  unassigned      YES manual administratively down down    ",
+        "Loopback8                  unassigned      YES manual administratively down down"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.3     YES manual up                    up      ",
+        "GigabitEthernet0/1         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  unassigned      YES manual administratively down down    ",
+        "Loopback2                  unassigned      YES manual administratively down down    ",
+        "Loopback3                  unassigned      YES manual administratively down down    ",
+        "Loopback4                  unassigned      YES manual administratively down down    ",
+        "Loopback5                  unassigned      YES manual administratively down down    ",
+        "Loopback6                  unassigned      YES manual administratively down down    ",
+        "Loopback7                  unassigned      YES manual administratively down down    ",
+        "Loopback8                  unassigned      YES manual administratively down down"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.4     YES manual up                    up      ",
+        "GigabitEthernet0/1         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  unassigned      YES manual administratively down down    ",
+        "Loopback2                  unassigned      YES manual administratively down down    ",
+        "Loopback3                  unassigned      YES manual administratively down down    ",
+        "Loopback4                  unassigned      YES manual administratively down down    ",
+        "Loopback5                  unassigned      YES manual administratively down down    ",
+        "Loopback6                  unassigned      YES manual administratively down down    ",
+        "Loopback7                  unassigned      YES manual administratively down down    ",
+        "Loopback8                  unassigned      YES manual administratively down down"
+    ]
+}
+
+TASK [Show ip route] ***********************************************************
+
+TASK [show_cmd : Get ip route] *************************************************
+ok: [R2]
+ok: [R3]
+ok: [R1]
+ok: [R4]
+
+TASK [show_cmd : Show ip route] ************************************************
+ok: [R1] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.1/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.2/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.3/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.4/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+
+TASK [config_ip_interfaces : Set IP addresses] *********************************
+changed: [R3]
+changed: [R2]
+changed: [R1]
+changed: [R4]
+
+TASK [config_ip_interfaces : Enable interfaces] ********************************
+changed: [R1]
+changed: [R2]
+changed: [R3]
+changed: [R4]
+
+TASK [Show ip interface brief] *************************************************
+
+TASK [show_cmd : Get ip interface brief] ***************************************
+ok: [R4]
+ok: [R2]
+ok: [R1]
+ok: [R3]
+
+TASK [show_cmd : Show ip interface brief] **************************************
+ok: [R1] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.1     YES manual up                    up      ",
+        "GigabitEthernet0/1         172.31.0.1      YES manual up                    up      ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  10.0.1.1        YES manual up                    up      ",
+        "Loopback2                  10.0.1.2        YES manual up                    up      ",
+        "Loopback3                  10.0.1.3        YES manual up                    up      ",
+        "Loopback4                  10.0.1.4        YES manual up                    up      ",
+        "Loopback5                  172.16.0.1      YES manual up                    up      ",
+        "Loopback6                  172.16.0.2      YES manual up                    up      ",
+        "Loopback7                  172.16.0.3      YES manual up                    up      ",
+        "Loopback8                  172.16.0.4      YES manual up                    up"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.2     YES manual up                    up      ",
+        "GigabitEthernet0/1         172.31.0.2      YES manual up                    up      ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  10.0.2.1        YES manual up                    up      ",
+        "Loopback2                  10.0.2.2        YES manual up                    up      ",
+        "Loopback3                  10.0.2.3        YES manual up                    up      ",
+        "Loopback4                  10.0.2.4        YES manual up                    up      ",
+        "Loopback5                  172.17.0.1      YES manual up                    up      ",
+        "Loopback6                  172.17.0.2      YES manual up                    up      ",
+        "Loopback7                  172.17.0.3      YES manual up                    up      ",
+        "Loopback8                  172.17.0.4      YES manual up                    up"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.3     YES manual up                    up      ",
+        "GigabitEthernet0/1         172.31.0.3      YES manual up                    up      ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  10.0.3.1        YES manual up                    up      ",
+        "Loopback2                  10.0.3.2        YES manual up                    up      ",
+        "Loopback3                  10.0.3.3        YES manual up                    up      ",
+        "Loopback4                  10.0.3.4        YES manual up                    up      ",
+        "Loopback5                  172.18.0.1      YES manual up                    up      ",
+        "Loopback6                  172.18.0.2      YES manual up                    up      ",
+        "Loopback7                  172.18.0.3      YES manual up                    up      ",
+        "Loopback8                  172.18.0.4      YES manual up                    up"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Interface                  IP-Address      OK? Method Status                Protocol",
+        "GigabitEthernet0/0         192.168.0.4     YES manual up                    up      ",
+        "GigabitEthernet0/1         172.31.0.4      YES manual up                    up      ",
+        "GigabitEthernet0/2         unassigned      YES unset  administratively down down    ",
+        "GigabitEthernet0/3         unassigned      YES unset  administratively down down    ",
+        "Loopback1                  10.0.4.1        YES manual up                    up      ",
+        "Loopback2                  10.0.4.2        YES manual up                    up      ",
+        "Loopback3                  10.0.4.3        YES manual up                    up      ",
+        "Loopback4                  10.0.4.4        YES manual up                    up      ",
+        "Loopback5                  172.19.0.1      YES manual up                    up      ",
+        "Loopback6                  172.19.0.2      YES manual up                    up      ",
+        "Loopback7                  172.19.0.3      YES manual up                    up      ",
+        "Loopback8                  172.19.0.4      YES manual up                    up"
+    ]
+}
+
+TASK [Show ip route] ***********************************************************
+
+TASK [show_cmd : Get ip route] *************************************************
+ok: [R1]
+ok: [R3]
+ok: [R2]
+ok: [R4]
+
+TASK [show_cmd : Show ip route] ************************************************
+ok: [R1] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.1.1 is directly connected, Loopback1",
+        "C        10.0.1.2 is directly connected, Loopback2",
+        "C        10.0.1.3 is directly connected, Loopback3",
+        "C        10.0.1.4 is directly connected, Loopback4",
+        "      172.16.0.0/32 is subnetted, 4 subnets",
+        "C        172.16.0.1 is directly connected, Loopback5",
+        "C        172.16.0.2 is directly connected, Loopback6",
+        "C        172.16.0.3 is directly connected, Loopback7",
+        "C        172.16.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.1/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.1/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.2.1 is directly connected, Loopback1",
+        "C        10.0.2.2 is directly connected, Loopback2",
+        "C        10.0.2.3 is directly connected, Loopback3",
+        "C        10.0.2.4 is directly connected, Loopback4",
+        "      172.17.0.0/32 is subnetted, 4 subnets",
+        "C        172.17.0.1 is directly connected, Loopback5",
+        "C        172.17.0.2 is directly connected, Loopback6",
+        "C        172.17.0.3 is directly connected, Loopback7",
+        "C        172.17.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.2/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.2/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.3.1 is directly connected, Loopback1",
+        "C        10.0.3.2 is directly connected, Loopback2",
+        "C        10.0.3.3 is directly connected, Loopback3",
+        "C        10.0.3.4 is directly connected, Loopback4",
+        "      172.18.0.0/32 is subnetted, 4 subnets",
+        "C        172.18.0.1 is directly connected, Loopback5",
+        "C        172.18.0.2 is directly connected, Loopback6",
+        "C        172.18.0.3 is directly connected, Loopback7",
+        "C        172.18.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.3/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.3/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.4.1 is directly connected, Loopback1",
+        "C        10.0.4.2 is directly connected, Loopback2",
+        "C        10.0.4.3 is directly connected, Loopback3",
+        "C        10.0.4.4 is directly connected, Loopback4",
+        "      172.19.0.0/32 is subnetted, 4 subnets",
+        "C        172.19.0.1 is directly connected, Loopback5",
+        "C        172.19.0.2 is directly connected, Loopback6",
+        "C        172.19.0.3 is directly connected, Loopback7",
+        "C        172.19.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.4/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.4/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+
+TASK [Ping interfaces] *********************************************************
+
+TASK [ping_interfaces : Ping R1 interfaces] ************************************
+ok: [R1] => (item=[{'address': '10.0.1.1/32'}])
+ok: [R1] => (item=[{'address': '10.0.1.2/32'}])
+ok: [R1] => (item=[{'address': '10.0.1.3/32'}])
+ok: [R1] => (item=[{'address': '10.0.1.4/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.1/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.2/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.3/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.4/32'}])
+ok: [R1] => (item=[{'address': '172.31.0.1/24'}])
+failed: [R3] (item=[{'address': '10.0.1.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.1", "item": [{"address": "10.0.1.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.1.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.1", "item": [{"address": "10.0.1.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.1.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.1", "item": [{"address": "10.0.1.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.1.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.2", "item": [{"address": "10.0.1.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.1.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.2", "item": [{"address": "10.0.1.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.1.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.2", "item": [{"address": "10.0.1.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.1.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.3", "item": [{"address": "10.0.1.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.1.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.3", "item": [{"address": "10.0.1.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.1.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.3", "item": [{"address": "10.0.1.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.1.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.4", "item": [{"address": "10.0.1.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.1.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.4", "item": [{"address": "10.0.1.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.1.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.1.4", "item": [{"address": "10.0.1.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.16.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.1", "item": [{"address": "172.16.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.16.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.1", "item": [{"address": "172.16.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.16.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.1", "item": [{"address": "172.16.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.16.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.2", "item": [{"address": "172.16.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.16.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.2", "item": [{"address": "172.16.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.16.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.2", "item": [{"address": "172.16.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.16.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.3", "item": [{"address": "172.16.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.16.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.3", "item": [{"address": "172.16.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.16.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.3", "item": [{"address": "172.16.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.16.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.4", "item": [{"address": "172.16.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.16.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.4", "item": [{"address": "172.16.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.16.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.16.0.4", "item": [{"address": "172.16.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R3] => (item=[{'address': '172.31.0.1/24'}])
+...ignoring
+ok: [R2] => (item=[{'address': '172.31.0.1/24'}])
+...ignoring
+ok: [R4] => (item=[{'address': '172.31.0.1/24'}])
+...ignoring
+
+TASK [ping_interfaces : Ping R2 interfaces] ************************************
+ok: [R2] => (item=[{'address': '10.0.2.1/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.3/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.4/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.1/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.2/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.3/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.4/32'}])
+ok: [R2] => (item=[{'address': '172.31.0.2/24'}])
+failed: [R3] (item=[{'address': '10.0.2.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.1", "item": [{"address": "10.0.2.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.2.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.1", "item": [{"address": "10.0.2.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.2.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.1", "item": [{"address": "10.0.2.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.2.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.2", "item": [{"address": "10.0.2.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.2.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.2", "item": [{"address": "10.0.2.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.2.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.2", "item": [{"address": "10.0.2.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.2.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.3", "item": [{"address": "10.0.2.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.2.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.3", "item": [{"address": "10.0.2.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.2.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.3", "item": [{"address": "10.0.2.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.2.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.4", "item": [{"address": "10.0.2.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.2.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.4", "item": [{"address": "10.0.2.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.2.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.2.4", "item": [{"address": "10.0.2.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.17.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.1", "item": [{"address": "172.17.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.17.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.1", "item": [{"address": "172.17.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.17.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.1", "item": [{"address": "172.17.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.17.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.2", "item": [{"address": "172.17.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.17.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.2", "item": [{"address": "172.17.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.17.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.2", "item": [{"address": "172.17.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.17.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.3", "item": [{"address": "172.17.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.17.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.3", "item": [{"address": "172.17.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.17.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.3", "item": [{"address": "172.17.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.17.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.4", "item": [{"address": "172.17.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.17.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.4", "item": [{"address": "172.17.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R3] => (item=[{'address': '172.31.0.2/24'}])
+...ignoring
+failed: [R1] (item=[{'address': '172.17.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.17.0.4", "item": [{"address": "172.17.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R4] => (item=[{'address': '172.31.0.2/24'}])
+...ignoring
+ok: [R1] => (item=[{'address': '172.31.0.2/24'}])
+...ignoring
+
+TASK [ping_interfaces : Ping R3 interfaces] ************************************
+ok: [R3] => (item=[{'address': '10.0.3.1/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.2/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.3/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.4/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.1/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.2/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.3/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.4/32'}])
+ok: [R3] => (item=[{'address': '172.31.0.3/24'}])
+failed: [R1] (item=[{'address': '10.0.3.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.1", "item": [{"address": "10.0.3.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.3.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.1", "item": [{"address": "10.0.3.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.3.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.1", "item": [{"address": "10.0.3.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.3.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.2", "item": [{"address": "10.0.3.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.3.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.2", "item": [{"address": "10.0.3.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.3.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.2", "item": [{"address": "10.0.3.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.3.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.3", "item": [{"address": "10.0.3.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.3.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.3", "item": [{"address": "10.0.3.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.3.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.3", "item": [{"address": "10.0.3.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.3.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.4", "item": [{"address": "10.0.3.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '10.0.3.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.4", "item": [{"address": "10.0.3.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.3.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.3.4", "item": [{"address": "10.0.3.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.18.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.1", "item": [{"address": "172.18.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.18.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.1", "item": [{"address": "172.18.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.18.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.1", "item": [{"address": "172.18.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.18.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.2", "item": [{"address": "172.18.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.18.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.2", "item": [{"address": "172.18.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.18.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.2", "item": [{"address": "172.18.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.18.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.3", "item": [{"address": "172.18.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R4] (item=[{'address': '172.18.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.3", "item": [{"address": "172.18.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.18.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.3", "item": [{"address": "172.18.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.18.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.4", "item": [{"address": "172.18.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R1] => (item=[{'address': '172.31.0.3/24'}])
+...ignoring
+failed: [R4] (item=[{'address': '172.18.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.4", "item": [{"address": "172.18.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.18.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.18.0.4", "item": [{"address": "172.18.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R2] => (item=[{'address': '172.31.0.3/24'}])
+...ignoring
+ok: [R4] => (item=[{'address': '172.31.0.3/24'}])
+...ignoring
+
+TASK [ping_interfaces : Ping R4 interfaces] ************************************
+ok: [R4] => (item=[{'address': '10.0.4.1/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.2/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.3/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.4/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.1/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.2/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.3/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.4/32'}])
+ok: [R4] => (item=[{'address': '172.31.0.4/24'}])
+failed: [R2] (item=[{'address': '10.0.4.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.1", "item": [{"address": "10.0.4.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.4.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.1", "item": [{"address": "10.0.4.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.4.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.1", "item": [{"address": "10.0.4.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.4.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.2", "item": [{"address": "10.0.4.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.4.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.2", "item": [{"address": "10.0.4.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.4.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.2", "item": [{"address": "10.0.4.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.4.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.3", "item": [{"address": "10.0.4.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.4.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.3", "item": [{"address": "10.0.4.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.4.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.3", "item": [{"address": "10.0.4.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '10.0.4.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.4", "item": [{"address": "10.0.4.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '10.0.4.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.4", "item": [{"address": "10.0.4.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '10.0.4.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 10.0.4.4", "item": [{"address": "10.0.4.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.19.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.1", "item": [{"address": "172.19.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.19.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.1", "item": [{"address": "172.19.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.19.0.1/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.1", "item": [{"address": "172.19.0.1/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.19.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.2", "item": [{"address": "172.19.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.19.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.2", "item": [{"address": "172.19.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.19.0.2/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.2", "item": [{"address": "172.19.0.2/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.19.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.3", "item": [{"address": "172.19.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.19.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.3", "item": [{"address": "172.19.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R3] (item=[{'address': '172.19.0.3/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.3", "item": [{"address": "172.19.0.3/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R2] (item=[{'address': '172.19.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.4", "item": [{"address": "172.19.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+failed: [R1] (item=[{'address': '172.19.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.4", "item": [{"address": "172.19.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R1] => (item=[{'address': '172.31.0.4/24'}])
+...ignoring
+ok: [R2] => (item=[{'address': '172.31.0.4/24'}])
+...ignoring
+failed: [R3] (item=[{'address': '172.19.0.4/32'}]) => {"ansible_loop_var": "item", "changed": false, "commands": "ping ip 172.19.0.4", "item": [{"address": "172.19.0.4/32"}], "msg": "Ping failed unexpectedly", "packet_loss": "100%", "packets_rx": 0, "packets_tx": 5, "rtt": {}}
+ok: [R3] => (item=[{'address': '172.31.0.4/24'}])
+...ignoring
+
+TASK [Configure ospf] **********************************************************
+
+TASK [Show ip ospf neighbor] ***************************************************
+
+TASK [show_cmd : Get ip ospf neighbor] *****************************************
+ok: [R1]
+ok: [R2]
+ok: [R3]
+ok: [R4]
+
+TASK [show_cmd : Show ip ospf neighbor] ****************************************
+ok: [R1] => {
+    "msg": [
+        ""
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        ""
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        ""
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        ""
+    ]
+}
+
+TASK [Show ip route] ***********************************************************
+
+TASK [show_cmd : Get ip route] *************************************************
+ok: [R2]
+ok: [R1]
+ok: [R4]
+ok: [R3]
+
+TASK [show_cmd : Show ip route] ************************************************
+ok: [R1] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.1.1 is directly connected, Loopback1",
+        "C        10.0.1.2 is directly connected, Loopback2",
+        "C        10.0.1.3 is directly connected, Loopback3",
+        "C        10.0.1.4 is directly connected, Loopback4",
+        "      172.16.0.0/32 is subnetted, 4 subnets",
+        "C        172.16.0.1 is directly connected, Loopback5",
+        "C        172.16.0.2 is directly connected, Loopback6",
+        "C        172.16.0.3 is directly connected, Loopback7",
+        "C        172.16.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.1/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.1/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.2.1 is directly connected, Loopback1",
+        "C        10.0.2.2 is directly connected, Loopback2",
+        "C        10.0.2.3 is directly connected, Loopback3",
+        "C        10.0.2.4 is directly connected, Loopback4",
+        "      172.17.0.0/32 is subnetted, 4 subnets",
+        "C        172.17.0.1 is directly connected, Loopback5",
+        "C        172.17.0.2 is directly connected, Loopback6",
+        "C        172.17.0.3 is directly connected, Loopback7",
+        "C        172.17.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.2/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.2/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.3.1 is directly connected, Loopback1",
+        "C        10.0.3.2 is directly connected, Loopback2",
+        "C        10.0.3.3 is directly connected, Loopback3",
+        "C        10.0.3.4 is directly connected, Loopback4",
+        "      172.18.0.0/32 is subnetted, 4 subnets",
+        "C        172.18.0.1 is directly connected, Loopback5",
+        "C        172.18.0.2 is directly connected, Loopback6",
+        "C        172.18.0.3 is directly connected, Loopback7",
+        "C        172.18.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.3/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.3/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 4 subnets",
+        "C        10.0.4.1 is directly connected, Loopback1",
+        "C        10.0.4.2 is directly connected, Loopback2",
+        "C        10.0.4.3 is directly connected, Loopback3",
+        "C        10.0.4.4 is directly connected, Loopback4",
+        "      172.19.0.0/32 is subnetted, 4 subnets",
+        "C        172.19.0.1 is directly connected, Loopback5",
+        "C        172.19.0.2 is directly connected, Loopback6",
+        "C        172.19.0.3 is directly connected, Loopback7",
+        "C        172.19.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.4/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.4/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+
+TASK [config_ospf : Configure OSPF] ********************************************
+changed: [R1]
+changed: [R2]
+changed: [R3]
+changed: [R4]
+
+TASK [config_ospf : Pause for 40 seconds] **************************************
+Pausing for 40 seconds
+(ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+ok: [R1]
+
+TASK [Show ip ospf neighbor] ***************************************************
+
+TASK [show_cmd : Get ip ospf neighbor] *****************************************
+ok: [R1]
+ok: [R4]
+ok: [R2]
+ok: [R3]
+
+TASK [show_cmd : Show ip ospf neighbor] ****************************************
+ok: [R1] => {
+    "msg": [
+        "Neighbor ID     Pri   State           Dead Time   Address         Interface",
+        "172.17.0.4        1   2WAY/DROTHER    00:00:37    172.31.0.2      GigabitEthernet0/1",
+        "172.18.0.4        1   FULL/BDR        00:00:37    172.31.0.3      GigabitEthernet0/1",
+        "172.19.0.4        1   FULL/DR         00:00:37    172.31.0.4      GigabitEthernet0/1"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Neighbor ID     Pri   State           Dead Time   Address         Interface",
+        "172.16.0.4        1   2WAY/DROTHER    00:00:36    172.31.0.1      GigabitEthernet0/1",
+        "172.18.0.4        1   FULL/BDR        00:00:37    172.31.0.3      GigabitEthernet0/1",
+        "172.19.0.4        1   FULL/DR         00:00:37    172.31.0.4      GigabitEthernet0/1"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Neighbor ID     Pri   State           Dead Time   Address         Interface",
+        "172.16.0.4        1   FULL/DROTHER    00:00:37    172.31.0.1      GigabitEthernet0/1",
+        "172.17.0.4        1   FULL/DROTHER    00:00:37    172.31.0.2      GigabitEthernet0/1",
+        "172.19.0.4        1   FULL/DR         00:00:37    172.31.0.4      GigabitEthernet0/1"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Neighbor ID     Pri   State           Dead Time   Address         Interface",
+        "172.16.0.4        1   FULL/DROTHER    00:00:37    172.31.0.1      GigabitEthernet0/1",
+        "172.17.0.4        1   FULL/DROTHER    00:00:37    172.31.0.2      GigabitEthernet0/1",
+        "172.18.0.4        1   FULL/BDR        00:00:37    172.31.0.3      GigabitEthernet0/1"
+    ]
+}
+
+TASK [Show ip route] ***********************************************************
+
+TASK [show_cmd : Get ip route] *************************************************
+ok: [R1]
+ok: [R2]
+ok: [R3]
+ok: [R4]
+
+TASK [show_cmd : Show ip route] ************************************************
+ok: [R1] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 8 subnets",
+        "C        10.0.1.1 is directly connected, Loopback1",
+        "C        10.0.1.2 is directly connected, Loopback2",
+        "C        10.0.1.3 is directly connected, Loopback3",
+        "C        10.0.1.4 is directly connected, Loopback4",
+        "O        10.0.4.1 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.2 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.3 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.4 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "      172.16.0.0/32 is subnetted, 4 subnets",
+        "C        172.16.0.1 is directly connected, Loopback5",
+        "C        172.16.0.2 is directly connected, Loopback6",
+        "C        172.16.0.3 is directly connected, Loopback7",
+        "C        172.16.0.4 is directly connected, Loopback8",
+        "      172.19.0.0/32 is subnetted, 4 subnets",
+        "O        172.19.0.1 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.2 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.3 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.4 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.1/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.1/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R2] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 8 subnets",
+        "C        10.0.2.1 is directly connected, Loopback1",
+        "C        10.0.2.2 is directly connected, Loopback2",
+        "C        10.0.2.3 is directly connected, Loopback3",
+        "C        10.0.2.4 is directly connected, Loopback4",
+        "O        10.0.4.1 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.2 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.3 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.4 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "      172.17.0.0/32 is subnetted, 4 subnets",
+        "C        172.17.0.1 is directly connected, Loopback5",
+        "C        172.17.0.2 is directly connected, Loopback6",
+        "C        172.17.0.3 is directly connected, Loopback7",
+        "C        172.17.0.4 is directly connected, Loopback8",
+        "      172.19.0.0/32 is subnetted, 4 subnets",
+        "O        172.19.0.1 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.2 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.3 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.4 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.2/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.2/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R3] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 8 subnets",
+        "C        10.0.3.1 is directly connected, Loopback1",
+        "C        10.0.3.2 is directly connected, Loopback2",
+        "C        10.0.3.3 is directly connected, Loopback3",
+        "C        10.0.3.4 is directly connected, Loopback4",
+        "O        10.0.4.1 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.2 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.3 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.4.4 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "      172.18.0.0/32 is subnetted, 4 subnets",
+        "C        172.18.0.1 is directly connected, Loopback5",
+        "C        172.18.0.2 is directly connected, Loopback6",
+        "C        172.18.0.3 is directly connected, Loopback7",
+        "C        172.18.0.4 is directly connected, Loopback8",
+        "      172.19.0.0/32 is subnetted, 4 subnets",
+        "O        172.19.0.1 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.2 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.3 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "O        172.19.0.4 [110/2] via 172.31.0.4, 00:00:07, GigabitEthernet0/1",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.3/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.3/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+ok: [R4] => {
+    "msg": [
+        "Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP",
+        "       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area ",
+        "       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2",
+        "       E1 - OSPF external type 1, E2 - OSPF external type 2",
+        "       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2",
+        "       ia - IS-IS inter area, * - candidate default, U - per-user static route",
+        "       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP",
+        "       a - application route",
+        "       + - replicated route, % - next hop override, p - overrides from PfR",
+        "",
+        "Gateway of last resort is not set",
+        "",
+        "      10.0.0.0/32 is subnetted, 16 subnets",
+        "O        10.0.1.1 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.1.2 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.1.3 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.1.4 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.2.1 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.2.2 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.2.3 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.2.4 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.3.1 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.3.2 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.3.3 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "O        10.0.3.4 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "C        10.0.4.1 is directly connected, Loopback1",
+        "C        10.0.4.2 is directly connected, Loopback2",
+        "C        10.0.4.3 is directly connected, Loopback3",
+        "C        10.0.4.4 is directly connected, Loopback4",
+        "      172.16.0.0/32 is subnetted, 4 subnets",
+        "O        172.16.0.1 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        172.16.0.2 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        172.16.0.3 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "O        172.16.0.4 [110/2] via 172.31.0.1, 00:00:07, GigabitEthernet0/1",
+        "      172.17.0.0/32 is subnetted, 4 subnets",
+        "O        172.17.0.1 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        172.17.0.2 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        172.17.0.3 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "O        172.17.0.4 [110/2] via 172.31.0.2, 00:00:07, GigabitEthernet0/1",
+        "      172.18.0.0/32 is subnetted, 4 subnets",
+        "O        172.18.0.1 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "O        172.18.0.2 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "O        172.18.0.3 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "O        172.18.0.4 [110/2] via 172.31.0.3, 00:00:07, GigabitEthernet0/1",
+        "      172.19.0.0/32 is subnetted, 4 subnets",
+        "C        172.19.0.1 is directly connected, Loopback5",
+        "C        172.19.0.2 is directly connected, Loopback6",
+        "C        172.19.0.3 is directly connected, Loopback7",
+        "C        172.19.0.4 is directly connected, Loopback8",
+        "      172.31.0.0/16 is variably subnetted, 2 subnets, 2 masks",
+        "C        172.31.0.0/24 is directly connected, GigabitEthernet0/1",
+        "L        172.31.0.4/32 is directly connected, GigabitEthernet0/1",
+        "      192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks",
+        "C        192.168.0.0/24 is directly connected, GigabitEthernet0/0",
+        "L        192.168.0.4/32 is directly connected, GigabitEthernet0/0"
+    ]
+}
+
+TASK [Ping interfaces] *********************************************************
+
+TASK [ping_interfaces : Ping R1 interfaces] ************************************
+ok: [R1] => (item=[{'address': '10.0.1.1/32'}])
+ok: [R4] => (item=[{'address': '10.0.1.1/32'}])
+ok: [R1] => (item=[{'address': '10.0.1.2/32'}])
+ok: [R4] => (item=[{'address': '10.0.1.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.1.1/32'}])
+ok: [R3] => (item=[{'address': '10.0.1.1/32'}])
+ok: [R1] => (item=[{'address': '10.0.1.3/32'}])
+ok: [R4] => (item=[{'address': '10.0.1.3/32'}])
+ok: [R3] => (item=[{'address': '10.0.1.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.1.2/32'}])
+ok: [R1] => (item=[{'address': '10.0.1.4/32'}])
+ok: [R4] => (item=[{'address': '10.0.1.4/32'}])
+ok: [R3] => (item=[{'address': '10.0.1.3/32'}])
+ok: [R2] => (item=[{'address': '10.0.1.3/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.1/32'}])
+ok: [R4] => (item=[{'address': '172.16.0.1/32'}])
+ok: [R3] => (item=[{'address': '10.0.1.4/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.1.4/32'}])
+ok: [R4] => (item=[{'address': '172.16.0.2/32'}])
+ok: [R3] => (item=[{'address': '172.16.0.1/32'}])
+ok: [R2] => (item=[{'address': '172.16.0.1/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.3/32'}])
+ok: [R4] => (item=[{'address': '172.16.0.3/32'}])
+ok: [R3] => (item=[{'address': '172.16.0.2/32'}])
+ok: [R2] => (item=[{'address': '172.16.0.2/32'}])
+ok: [R1] => (item=[{'address': '172.16.0.4/32'}])
+ok: [R4] => (item=[{'address': '172.16.0.4/32'}])
+ok: [R3] => (item=[{'address': '172.16.0.3/32'}])
+ok: [R1] => (item=[{'address': '172.31.0.1/24'}])
+ok: [R2] => (item=[{'address': '172.16.0.3/32'}])
+ok: [R4] => (item=[{'address': '172.31.0.1/24'}])
+ok: [R3] => (item=[{'address': '172.16.0.4/32'}])
+ok: [R2] => (item=[{'address': '172.16.0.4/32'}])
+ok: [R3] => (item=[{'address': '172.31.0.1/24'}])
+ok: [R2] => (item=[{'address': '172.31.0.1/24'}])
+
+TASK [ping_interfaces : Ping R2 interfaces] ************************************
+ok: [R3] => (item=[{'address': '10.0.2.1/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.1/32'}])
+ok: [R4] => (item=[{'address': '10.0.2.1/32'}])
+ok: [R1] => (item=[{'address': '10.0.2.1/32'}])
+ok: [R3] => (item=[{'address': '10.0.2.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.2/32'}])
+ok: [R4] => (item=[{'address': '10.0.2.2/32'}])
+ok: [R1] => (item=[{'address': '10.0.2.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.3/32'}])
+ok: [R3] => (item=[{'address': '10.0.2.3/32'}])
+ok: [R4] => (item=[{'address': '10.0.2.3/32'}])
+ok: [R1] => (item=[{'address': '10.0.2.3/32'}])
+ok: [R2] => (item=[{'address': '10.0.2.4/32'}])
+ok: [R4] => (item=[{'address': '10.0.2.4/32'}])
+ok: [R3] => (item=[{'address': '10.0.2.4/32'}])
+ok: [R1] => (item=[{'address': '10.0.2.4/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.1/32'}])
+ok: [R4] => (item=[{'address': '172.17.0.1/32'}])
+ok: [R3] => (item=[{'address': '172.17.0.1/32'}])
+ok: [R1] => (item=[{'address': '172.17.0.1/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.2/32'}])
+ok: [R4] => (item=[{'address': '172.17.0.2/32'}])
+ok: [R3] => (item=[{'address': '172.17.0.2/32'}])
+ok: [R1] => (item=[{'address': '172.17.0.2/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.3/32'}])
+ok: [R4] => (item=[{'address': '172.17.0.3/32'}])
+ok: [R3] => (item=[{'address': '172.17.0.3/32'}])
+ok: [R1] => (item=[{'address': '172.17.0.3/32'}])
+ok: [R2] => (item=[{'address': '172.17.0.4/32'}])
+ok: [R4] => (item=[{'address': '172.17.0.4/32'}])
+ok: [R3] => (item=[{'address': '172.17.0.4/32'}])
+ok: [R1] => (item=[{'address': '172.17.0.4/32'}])
+ok: [R2] => (item=[{'address': '172.31.0.2/24'}])
+ok: [R4] => (item=[{'address': '172.31.0.2/24'}])
+ok: [R3] => (item=[{'address': '172.31.0.2/24'}])
+ok: [R1] => (item=[{'address': '172.31.0.2/24'}])
+
+TASK [ping_interfaces : Ping R3 interfaces] ************************************
+ok: [R1] => (item=[{'address': '10.0.3.1/32'}])
+ok: [R2] => (item=[{'address': '10.0.3.1/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.1/32'}])
+ok: [R4] => (item=[{'address': '10.0.3.1/32'}])
+ok: [R1] => (item=[{'address': '10.0.3.2/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.2/32'}])
+ok: [R4] => (item=[{'address': '10.0.3.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.3.2/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.3/32'}])
+ok: [R1] => (item=[{'address': '10.0.3.3/32'}])
+ok: [R4] => (item=[{'address': '10.0.3.3/32'}])
+ok: [R2] => (item=[{'address': '10.0.3.3/32'}])
+ok: [R1] => (item=[{'address': '10.0.3.4/32'}])
+ok: [R3] => (item=[{'address': '10.0.3.4/32'}])
+ok: [R4] => (item=[{'address': '10.0.3.4/32'}])
+ok: [R2] => (item=[{'address': '10.0.3.4/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.1/32'}])
+ok: [R1] => (item=[{'address': '172.18.0.1/32'}])
+ok: [R4] => (item=[{'address': '172.18.0.1/32'}])
+ok: [R2] => (item=[{'address': '172.18.0.1/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.2/32'}])
+ok: [R4] => (item=[{'address': '172.18.0.2/32'}])
+ok: [R1] => (item=[{'address': '172.18.0.2/32'}])
+ok: [R2] => (item=[{'address': '172.18.0.2/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.3/32'}])
+ok: [R4] => (item=[{'address': '172.18.0.3/32'}])
+ok: [R1] => (item=[{'address': '172.18.0.3/32'}])
+ok: [R2] => (item=[{'address': '172.18.0.3/32'}])
+ok: [R3] => (item=[{'address': '172.18.0.4/32'}])
+ok: [R4] => (item=[{'address': '172.18.0.4/32'}])
+ok: [R1] => (item=[{'address': '172.18.0.4/32'}])
+ok: [R2] => (item=[{'address': '172.18.0.4/32'}])
+ok: [R3] => (item=[{'address': '172.31.0.3/24'}])
+ok: [R4] => (item=[{'address': '172.31.0.3/24'}])
+ok: [R1] => (item=[{'address': '172.31.0.3/24'}])
+ok: [R2] => (item=[{'address': '172.31.0.3/24'}])
+
+TASK [ping_interfaces : Ping R4 interfaces] ************************************
+ok: [R1] => (item=[{'address': '10.0.4.1/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.1/32'}])
+ok: [R2] => (item=[{'address': '10.0.4.1/32'}])
+ok: [R3] => (item=[{'address': '10.0.4.1/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.2/32'}])
+ok: [R1] => (item=[{'address': '10.0.4.2/32'}])
+ok: [R2] => (item=[{'address': '10.0.4.2/32'}])
+ok: [R3] => (item=[{'address': '10.0.4.2/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.3/32'}])
+ok: [R2] => (item=[{'address': '10.0.4.3/32'}])
+ok: [R1] => (item=[{'address': '10.0.4.3/32'}])
+ok: [R3] => (item=[{'address': '10.0.4.3/32'}])
+ok: [R4] => (item=[{'address': '10.0.4.4/32'}])
+ok: [R2] => (item=[{'address': '10.0.4.4/32'}])
+ok: [R1] => (item=[{'address': '10.0.4.4/32'}])
+ok: [R3] => (item=[{'address': '10.0.4.4/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.1/32'}])
+ok: [R2] => (item=[{'address': '172.19.0.1/32'}])
+ok: [R1] => (item=[{'address': '172.19.0.1/32'}])
+ok: [R3] => (item=[{'address': '172.19.0.1/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.2/32'}])
+ok: [R2] => (item=[{'address': '172.19.0.2/32'}])
+ok: [R1] => (item=[{'address': '172.19.0.2/32'}])
+ok: [R3] => (item=[{'address': '172.19.0.2/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.3/32'}])
+ok: [R2] => (item=[{'address': '172.19.0.3/32'}])
+ok: [R1] => (item=[{'address': '172.19.0.3/32'}])
+ok: [R3] => (item=[{'address': '172.19.0.3/32'}])
+ok: [R4] => (item=[{'address': '172.19.0.4/32'}])
+ok: [R2] => (item=[{'address': '172.19.0.4/32'}])
+ok: [R1] => (item=[{'address': '172.19.0.4/32'}])
+ok: [R3] => (item=[{'address': '172.19.0.4/32'}])
+ok: [R4] => (item=[{'address': '172.31.0.4/24'}])
+ok: [R2] => (item=[{'address': '172.31.0.4/24'}])
+ok: [R1] => (item=[{'address': '172.31.0.4/24'}])
+ok: [R3] => (item=[{'address': '172.31.0.4/24'}])
+
+PLAY RECAP *********************************************************************
+R1                         : ok=31   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=3   
+R2                         : ok=30   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=3   
+R3                         : ok=30   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=3   
+R4                         : ok=30   changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=3   
+
