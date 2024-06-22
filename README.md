@@ -280,3 +280,12 @@ Spróbuj dodać dodatkowy router wirtualny (a może też i fizyczny?) - pamięta
 ## 4. Możliwe problemy
 
 1. Wersja 6.1.2 ansible'owej kolecji `ansible.netcommon` zawiera błędy, które nie pozwalają na tworzenie interfejsów. Należy zainstalować starszą wersję, np. `6.1.1`.
+
+## 5. Bibliografia
+
+1. Instrukcja instalacji PNETLab: https://pnetlab.com/pages/download
+2. Dokumentacja Ansible: https://docs.ansible.com/, a w szczególności:
+    * tworzenie inventory: https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html
+    * używanie zmiennych: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html
+    * kolekcje Cisco: https://docs.ansible.com/ansible/latest/collections/cisco/index.html
+    * playbooks: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html
