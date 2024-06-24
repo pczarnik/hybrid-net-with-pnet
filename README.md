@@ -289,3 +289,4 @@ Spróbuj dodać dodatkowy router wirtualny (a może też i fizyczny?) - pamięta
     * używanie zmiennych: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html
     * kolekcje Cisco: https://docs.ansible.com/ansible/latest/collections/cisco/index.html
     * playbooks: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html
+3. Wspierane obrazy: https://pnetlab.com/pages/documentation?slug=PNETLab-Supported-Images. Warto zwrócić uwagę na to, że PNETLab wspiera obrazy nie tylko Cisco, ale również np. Juniper, czy Mikrotik. Powyższa instrukcja nie będzie jednak dla nich działać.
